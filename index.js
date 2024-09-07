@@ -10,13 +10,14 @@ function increment(){
     console.log(maximumStack);
     console.error(e)}
 }
-
-//increment()
+//Part 1: Stack Overflow
+increment()
+// error message “RangeError: Maximum call stack size exceeded at increment”
 
    // Surround the initial function call in a try/catch block.
 // Within the catch, log the error and the value of the counter variable.
 
-// error message“RangeError: Maximum call stack size exceeded at increment (index.js:6:19)”
+
 
 
 //Part II Trampolines
@@ -26,13 +27,13 @@ function increment(){
  * Here, we create a function that calculates
  * the factorial of a number, n. A factorial
  * is the product of all positive integers
- * less than or equal to the number, n.
+ * less than or equal to the number, n. 1*2*3*4*5*....n
  */
-const factorial = (n) => {
+const  factorial = (n) => {
     if (n === 0) return 1; // The base case, to stop recursion
     return n * factorial(n - 1); // The recursive call
   }
-  
+
   /**
    * If we were to call the above with a number as
    * high as, say, 50,000, it would result in a stack
@@ -48,6 +49,11 @@ const factorial = (n) => {
   * This prevents the function from being added 
   * directly to the call stack.
   */
+
+  console.log(factorial(10))
+  //console.log(factorial(50000)) 
+  //stackoverflow if call 50000
+
  const facto = (n, a = 1) => {
     if (n === 0) return a;
     return () => facto(n - 1, n * a);
@@ -72,6 +78,9 @@ const factorial = (n) => {
    return result;
  }
  
+ console.log(trampoline(factorial,10))
+ //console.log(trampoline(factorial,50000))
+ // Maximum call stack size exceeded if call 50000
  /**
   * Now, we can call the factorial function with as high
   * a number as we would like (as long as we don't run into
@@ -81,10 +90,11 @@ const factorial = (n) => {
   * Unfortunately, both of these are the case here, but
   * the principle of trampolining holds!
   */
- console.log(trampoline(facto(10000)))
 
 
 //Part 3: Deferred Execution
 // Create a simple HTML element to hold text. Cache this HTML element into a JavaScript variable.
-// Write a function that takes a parameter n and adds a list of all prime numbers between one and n to your HTML element.
+// Write a function that takes a parameter n and adds a list of all prime numbers between one and n to your HTML element.https://perscholas.instructure.com/conversations
 // Once complete, use the alert() method to alert the user that the calculation is finished.
+
+//let prime=prompt('Enter a number between 1 to 5000')
