@@ -100,6 +100,7 @@ const  factorial = (n) => {
 //let prime=prompt('Enter a number between 1 to 5000')
 //Cache the HTML element into JS variable
 const prime=document.getElementById('Part3Prime')
+const primeDiv=document.getElementById('primeDiv')
 //Function to check if a num is prime, using arrow fucntion, where function name is isPrime and taking one argument num
 const isPrime = (num) =>{
   if (num<=1){return false}
@@ -111,15 +112,32 @@ const isPrime = (num) =>{
 console.log(isPrime(35))
 console.log(isPrime(37))
 
-const addPrime=(n) =>{
+// const addPrime=(n) =>{
 
-        const primes=[]
-  for (let i=1; i<=n; i++){
-    if (isPrime(i)){primes.push(i)}
-    }
+//         const primes=[]
+//   for (let i=1; i<=n; i++){
+//     if (isPrime(i)){primes.push(i)}
+//     }
   
-  prime.textContent = primes.join(', ')
+//   prime.textContent = primes.join(', ')
+// }
+
+// addPrime(31)
+// alert('Prime number calculation is complete!');
+
+//Re-write code use list Element
+
+const addPrimes=(n)=>{
+  const ul=document.createElement('ul');
+  for(let i=1; i<=n; i++){
+    if(isPrime(i)){
+      const li=document.createElement('li')
+      li.textContent=i
+      ul.appendChild(li)
+    }
+  }
+  primeDiv.appendChild(ul)
+  alert('Prime number calculation is complete!');
 }
 
-addPrime(31)
-alert('Prime number calculation is complete!');
+addPrimes(19)
