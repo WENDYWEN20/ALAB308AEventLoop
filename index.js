@@ -94,7 +94,32 @@ const  factorial = (n) => {
 
 //Part 3: Deferred Execution
 // Create a simple HTML element to hold text. Cache this HTML element into a JavaScript variable.
-// Write a function that takes a parameter n and adds a list of all prime numbers between one and n to your HTML element.https://perscholas.instructure.com/conversations
+// Write a function that takes a parameter n and adds a list of all prime numbers between one and n to your HTML element
 // Once complete, use the alert() method to alert the user that the calculation is finished.
 
 //let prime=prompt('Enter a number between 1 to 5000')
+//Cache the HTML element into JS variable
+const prime=document.getElementById('Part3Prime')
+//Function to check if a num is prime, using arrow fucntion, where function name is isPrime and taking one argument num
+const isPrime = (num) =>{
+  if (num<=1){return false}
+  for (let i=2; i<=Math.sqrt(num); i++) {
+    if (num%i===0){return false}
+  }
+  return true
+}
+console.log(isPrime(35))
+console.log(isPrime(37))
+
+const addPrime=(n) =>{
+
+        const primes=[]
+  for (let i=1; i<=n; i++){
+    if (isPrime(i)){primes.push(i)}
+    }
+  
+  prime.textContent = primes.join(', ')
+}
+
+addPrime(31)
+alert('Prime number calculation is complete!');
